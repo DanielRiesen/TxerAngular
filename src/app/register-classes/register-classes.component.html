@@ -1,0 +1,18 @@
+<form name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+
+
+  <div class="form-group">
+    <label for="Courses">Courses: <br></label>
+    <select multiple name="Courses" id="Courses" class='form-contro' [(ngModel)]="model.Courses">
+      <option *ngFor="let course of courses" [value]="course.id">{{course.name}}</option>
+    </select>
+  </div>
+
+
+  <div class="form-group">
+  <button type="submit" class="submit-btn">Submit</button>
+</div>
+
+</form>
+
+
