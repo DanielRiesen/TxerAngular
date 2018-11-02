@@ -7,6 +7,7 @@ import { RegisterClassesComponent } from './register-classes/register-classes.co
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   { path: 'login', component: GoogleLoginComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'permisson', component: PermissionComponent },
