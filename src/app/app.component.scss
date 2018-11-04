@@ -3,12 +3,7 @@
     margin: 0;
 
     display: grid;
-    grid-template-columns: 240px auto;
+    grid-template-columns: 280px auto;
     height: 100%;
     background-color: #F8F8F8;
-}
-
-#right-side {
-    display: grid;
-    grid-template-rows: 6% 94%;
 }

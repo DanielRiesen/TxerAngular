@@ -1,69 +1,72 @@
 #main {
     height: 100%;
     display: grid;
-    grid-template-rows: 23.5vh auto;
+    grid-template-rows: 243px auto;
     background-color: white;
 }
 
 #profile {
     background-color: #D5D5D5;
+    margin-bottom: 20px;
+    padding-left: 16px;
+
 }
 
 #profile_icon {
-    padding-top: 5vh;
+    padding-top: 56px;
     width: 80px;
     height: 80px;
-    padding-left: 2vh;
+    padding-bottom: 28px;
 }
 
 #username {
-    padding-top: 2vh;
-    padding-left: 2vh;
-    margin: 0;
     font-size: 15px;
+    margin: 0;
+}
+
+#email {
+    display: grid;
+    grid-template-columns: 16px auto;
 }
 
 #arrow {
-    padding-top: 2.1vh;
-    padding-left: 5px;
-    width: 16px;
+    width: 15px;
+    margin: 0;
+    margin-top: 1;
+    margin-right: 6px;
 }
 
-#sidebar {
+.side_link {
     display: grid;
-    grid-template-columns: 10vw 8px;
-    height: 20px;
+    grid-template-columns: 40px auto 8px;
+    height: 50px;
+    background-color:  rgba(0, 0, 0, 0.08);
+    width: 220px;
+    margin-top: 2.5vh;
 }
 
-.sidebar_link {
-    display: grid;
-    grid-template-columns: 24px auto;
-    margin-top: 3vh;
-    background-color: #F2F2F2;
-    padding: 1.2vh 0;
-    padding-left: 20px;
-}
-
-
-
-.sidebar_link h3 {
-    margin: auto 0;
+.link_name {
+    margin: 0;
+    margin: auto;
+    margin-left: 0px;
     font-size: 15px;
 }
 
-.not_selected {
-    padding: 0;
-    margin: 0;
+
+.active {
+    background: #27A7CF;
+    color: #27A7CF;
+    font-size: 0;
 }
 
-.not_selected {
-    background-color: grey;
-    margin-top: 3vh;
+.not_active {
+    background: #C4C4C4;
+    color: #C4C4C4;
+    font-size: 0;
 }
 
-.dashbaord_icon {
+.icon {
     width: 24px;
+    margin: auto;
 }
-
-
 

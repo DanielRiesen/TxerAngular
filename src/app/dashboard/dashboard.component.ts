@@ -8,11 +8,19 @@ import { DjangoService } from '../django.service';
 })
 export class DashboardComponent implements OnInit {
 
+  courses: object;
+
   constructor(
     private django: DjangoService,
   ) { }
 
   ngOnInit() {
+    this.django.getRegClasses().subscribe(
+      (data:object) => this.courses = data
+    );
+
   }
+
+
 
 }

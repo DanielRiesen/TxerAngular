@@ -1,1 +1,54 @@
-<div id="enrolled">p</div>
+<div class="label">
+    <img src="assets/classes.svg" class="label_icon">
+</div>
+
+<div id="enrolled">
+    <table>
+    <td *ngFor="let course of courses">
+    <div class="classcard">
+
+        <div>
+            <h2 class="course_name">
+                {{course.name}}
+                <!-- Replace with class name when finished -->
+            </h2>
+            <p class="course_teacher">
+                {{course.teacher_name}}
+                <!-- Replace with first teachers name -->
+            </p>
+        </div>
+        <div class="icon_links">
+
+            <img src="assets/classroom.svg" class="link_icon">
+            <img src="assets/teacher.svg" class="link_icon">
+            <img src="assets/details.svg" class="link_icon">
+        </div>
+
+
+    </div>
+</td>
+
+    </table>
+
+</div>
+
+<div id="upcoming">
+
+        <div class="tutorial_card">
+    
+            <div>
+                <h2 class="tutorial_name">
+                    Language Arts
+                    <!-- Replace with class name when finished -->
+                </h2>
+            </div>
+            <div class="icon_links">
+    
+                <img src="assets/classroom.svg" class="link_icon">
+                <img src="assets/teacher.svg" class="link_icon">
+                <img src="assets/details.svg" class="link_icon">
+            </div>
+    
+    
+        </div>
+    </div>
