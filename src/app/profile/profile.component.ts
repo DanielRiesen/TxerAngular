@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DjangoService } from '../django.service';
-import { Observable } from 'rxjs';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
@@ -18,9 +17,6 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit() {
-    this.django.getSchools().subscribe(
-      data => this.schools = data
-    );
   }
 
   public reRoute(route) {
@@ -28,10 +24,11 @@ export class ProfileComponent implements OnInit {
   }
 
   model: any = {};
-
+ 
   onSubmit() {
     for (let cur in this.model) {
       sessionStorage.setItem(cur, this.model[cur])
+      console.log(cur)
     }
     this.reRoute('/permisson')
   }

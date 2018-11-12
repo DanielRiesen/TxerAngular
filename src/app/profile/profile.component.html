@@ -10,16 +10,11 @@
   </div>
 
   <div class="form-group">
-    <label for="school">School: <br></label>
-    <select name="school" id="school" class='form-contro' [(ngModel)]="model.school">
-      <option *ngFor="let school of schools" [value]="school.id">{{school.name}}</option>
-    </select>
+    <label for="desc">School Code: <br></label>
+    <input type="text" class="form-control" name="school" [(ngModel)]="model.school" #school="ngModel" />
   </div>
 
-  <div class="form-group">
-    <label for="teacher">Teacher: <br></label>
-    <input type="checkbox" class="form-control" name="teacher" [(ngModel)]="model.teacher" #desc="ngModel" />
-  </div>
+  
 
   <div class="form-group">
   <button type="submit" class="submit-btn">Submit</button>

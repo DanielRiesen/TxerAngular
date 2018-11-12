@@ -85,15 +85,6 @@ export class DjangoService {
 
   public isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(sessionStorage.getItem('token') == '');
   
-  getSchools() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-
-      })
-    };
-    return this.http.get('http://localhost:8000/API/schools/', httpOptions)
-  }
 
   getRegClasses() {
     const httpOptions = {

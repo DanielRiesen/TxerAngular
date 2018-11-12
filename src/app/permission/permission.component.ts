@@ -44,8 +44,8 @@ export class PermissionComponent implements OnInit {
         var temp: object = this.test(auth);
         Promise.resolve(temp).then((response) => {this.django.sendGoogleCode(response).subscribe((token) =>  {
           sessionStorage.setItem('token', token['token'])
-          this.django.updateProfile({username: sessionStorage.getItem('username'), desc: sessionStorage.getItem('desc'), school: sessionStorage.getItem("school"), teacher: sessionStorage.getItem('teacher')}).subscribe(() => {
-            if (sessionStorage.getItem('teacher')) {
+          this.django.updateProfile({username: sessionStorage.getItem('username'), desc: sessionStorage.getItem('desc'), school: sessionStorage.getItem("school"), teacher: sessionStorage.getItem('teacher')}).subscribe((data) => {
+            if (data['user_type'] == 'teacher') {
               console.log('/reg-classes')
               this.reRoute('/reg-classes')
             }
