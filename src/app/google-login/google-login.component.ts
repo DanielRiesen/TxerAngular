@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { DjangoService } from '../django.service';
 import { GoogleAuthService } from 'ng-gapi';
 import { UserServicesService } from '../user-services.service';
@@ -22,7 +22,8 @@ export class GoogleLoginComponent implements OnInit {
     private authService: GoogleAuthService,
     private gapiService: GoogleApiService,
     private django: DjangoService,
-    private router: Router,) {
+    private router: Router,
+    private zone: NgZone,) {
     // First make sure gapi is loaded can be in AppInitilizer
     gapiService.onLoad().subscribe(() => {
 
@@ -45,7 +46,7 @@ export class GoogleLoginComponent implements OnInit {
   }
 
   public reRoute(route) {
-    this.router.navigate([route])
+    this.zone.run(() => { this.router.navigate([route]) })
   }
 
   public signInUser() {
@@ -60,7 +61,9 @@ export class GoogleLoginComponent implements OnInit {
           this.reRoute('/profile')
           }
           else {
-            this.reRoute('/')
+            sessionStorage.setItem("token", data['token'])
+            console.log('/')
+            this.reRoute('/dashboard')
           }
         }
           
