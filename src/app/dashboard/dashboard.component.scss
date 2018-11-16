@@ -40,7 +40,7 @@
 #enrolled {
     box-shadow: inset 8px 8px 10px rgba(0, 0, 0, 0.06);
     margin: 5px 42px 55px;
-    padding: 58px 40px 58px 40px;
+    padding: 38px 40px 38px 40px;
     display: grid;
     overflow: hidden;
     background-color: white;
@@ -114,7 +114,7 @@
 }
 
 .course_name {
-    margin: 160px 0 0 30px;
+    margin: 150px 0 0 30px;
     color: #FFFFFF;
     
     font-family: Roboto;
@@ -138,10 +138,10 @@
 
 .classcard {
     display: grid;
-    grid-template-rows: auto 74px;
+    grid-template-rows: auto 64px;
     background-color: #27A7CF;
     width: 250px;
-    height: 320px;
+    height: 280px;
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
     margin: auto;
 }
@@ -149,7 +149,7 @@
 #upcoming {
     box-shadow: inset 8px 8px 10px rgba(0, 0, 0, 0.06);
     margin: 5px 42px;
-    padding: 58px 40px 58px 40px;
+    padding: 38px 40px 38px 40px;
     display: grid;
     background-color: white;
 }
@@ -188,7 +188,7 @@
     display: grid;
     grid-template-rows: 45% 55%;
     width: 250px;
-    height: 320px;
+    height: 280px;
     margin: auto;
 }
 
