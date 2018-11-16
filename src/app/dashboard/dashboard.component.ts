@@ -44,7 +44,7 @@ export class DashboardComponent implements OnInit {
           console.log(newEndTime)
           if (newStartTime[0][0] === '0') {
             if (Number(newStartTime[0]) > 12) {
-              this.tutorials[i]['Start_Time'] = Number(newStartTime[0][1]) - 12 + ": " + newStartTime[1] + "pm"
+              this.tutorials[i]['Start_Time'] = Number(newStartTime[0][1]) - 12 + ":" + newStartTime[1] + "pm"
             }
             else {
               this.tutorials[i]['Start_Time'] = newStartTime[0][1] + ":" + newStartTime[1] + "am"
@@ -53,7 +53,7 @@ export class DashboardComponent implements OnInit {
           }
           else {
             if (Number(newStartTime[0]) > 12) {
-              this.tutorials[i]['Start_Time'] = Number(newStartTime[0]) - 12 + ": " + newStartTime[1] + "pm"
+              this.tutorials[i]['Start_Time'] = Number(newStartTime[0]) - 12 + ":" + newStartTime[1] + "pm"
             }
             else {
               this.tutorials[i]['Start_Time'] = newStartTime[0] + ":" + newStartTime[1] + "am"
@@ -62,7 +62,7 @@ export class DashboardComponent implements OnInit {
           }
           if (newEndTime[0][0] === '0') {
             if (Number(newEndTime[0]) > 12) {
-              this.tutorials[i]['End_Time'] = Number(newEndTime[0][1]) - 12 + ": " + newEndTime[1] + "pm"
+              this.tutorials[i]['End_Time'] = Number(newEndTime[0][1]) - 12 + ":" + newEndTime[1] + "pm"
             }
             else {
               this.tutorials[i]['End_Time'] = newEndTime[0][1] + ":" + newEndTime[1] + "am"
@@ -71,7 +71,7 @@ export class DashboardComponent implements OnInit {
           }
           else {
             if (Number(newEndTime[0]) > 12) {
-              this.tutorials[i]['End_Time'] = Number(newEndTime[0]) - 12 + ": " + newEndTime[1] + "pm"
+              this.tutorials[i]['End_Time'] = Number(newEndTime[0]) - 12 + ":" + newEndTime[1] + "pm"
             }
             else {
               this.tutorials[i]['End_Time'] = newEndTime[0] + ":" + newEndTime[1] + "am"

@@ -151,7 +151,7 @@
     margin: 5px 42px;
     padding: 38px 40px 38px 40px;
     display: grid;
-    background-color: white;
+    background-color: #FBFBFB;
 }
 
 .tutorial_card {
@@ -159,7 +159,7 @@
     grid-template-columns: 56px auto;
     background-color: #27A7CF;
     width: 250px;
-    height: 162px;
+    height: 182px;
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
     margin: auto;
 }
@@ -227,6 +227,76 @@
 
 }
 
-.tutorial_details p {
+.tutorial_text p {
     margin:0;
+}
+
+
+.tutorial_details {
+    padding: 16px 0 0 20px;
+    color: #D8D8D8;
+    font-size: 14px;
+    display: grid;
+    grid-template-rows: auto 50px;
+}
+
+.class_name {
+    font-size: 30px;
+    color: white;
+    padding-top: 6px;
+    padding-bottom: 8px;
+    width: 100%;
+    display: grid;
+    grid-auto-columns: 18px auto;
+}
+
+.icons {
+    margin-top: auto;
+    margin-bottom: 11px;
+    display: grid;
+    grid-template-columns: 44px 44px 44px;
+}
+
+.tutorial_details_text {
+    color: #D8D8D8;
+    font-size: 0;
+
+}
+
+@keyframes example {
+    from {
+        margin-left: 40%;
+        font-size: 14px;
+    }
+    to {
+        margin-left: 0;
+        font-size: 14px;
+    }
+}
+
+@keyframes class_name_animation {
+    from {
+        font-size: 30px;
+    }
+    to {
+        font-size: 20px;
+    }
+}
+
+.hint {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5)
+}
+
+.tutorial_card:hover .tutorial_details_text {
+    animation: example 0.4s forwards;
+
+}
+
+.tutorial_card:hover .class_name {
+    animation: class_name_animation 0.5s forwards;
+}
+
+.tutorial_card:hover .hint {
+    display: none;
 }

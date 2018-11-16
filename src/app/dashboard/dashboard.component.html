@@ -1,5 +1,67 @@
 <div class="label">
-    <img src="assets/classes.svg" class="label_icon">
+        <img src="assets/classes.svg" class="label_icon">
+        <p class="label_text">Upcoming Tutorials</p>
+        <div class="view_all">
+            <p class="view_all_text">View All</p>
+            <img src="assets/view_all.svg" class="view_all_img">
+        </div>
+    </div>
+    
+    <div id="upcoming" class="columns" *ngIf="no_tut === false">
+    
+        <td *ngFor="let tutorial of tutorials">
+            <div class="tutorial_card" *ngIf="!not_reg">
+    
+                <div class="name">
+                    <h2 class="tutorial_name">
+                        Tutorial
+                        <!-- Replace with class name when finished -->
+                    </h2>
+                </div>
+                <div class="tutorial_details">
+                    <div class="tutorial_text">
+                        <p class="class_name">{{tutorial.classes[0].name}}</p>
+                        <p class="hint">Hover Mouse For Details</p>
+                        <div class=tutorial_details_text>  
+                        <p>{{tutorial.Start_Date}}</p>
+                            <p>{{tutorial.Start_Time}} - {{tutorial.End_Time}}</p>
+                            <p>Room {{tutorial.Location}}</p>
+                            <p *ngIf="tutorial.mandatory">Mandatory</p>
+                            <p *ngIf="!tutorial.mandatory">Not Mandatory</p>
+                        </div>  
+                    </div>
+                    <div class="icons">
+                        <div class="icon">
+                            <img src="assets/checkin_white.svg" alt="">
+                        </div>
+                        <div class="icon">
+                            <img src="assets/upcoming_white.svg" alt="">
+                        </div>
+                        <div class="icon">
+                            <img src="assets/teacher_white.svg" alt="" class="icon">
+                        </div>
+                    </div>
+                </div>
+    
+    
+            </div>
+        </td>
+    </div>
+    
+    <div id="upcoming" class="columns" *ngIf="no_tut === true" style="grid-template-columns: 100%; text-align: center;">
+        <div class="no_tutorials">
+            <p class="no_reg_clas">No upcoming tutorials</p>
+            <div class="teacher_button">
+                <p class="teacher_button_text">Teacher?<br>Create a tutorial</p>
+                <div class="teacher_button_div">
+                    <p>Create Tutorial</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="label">
+    <img src="assets/upcoming_tutorials.svg" class="label_icon">
     <p class="label_text">Enrolled Classes</p>
     <div class="view_all">
         <p class="view_all_text">View All</p>
@@ -47,48 +109,3 @@
     </div>
 </div>
 
-<div class="label">
-    <img src="assets/upcoming_tutorials.svg" class="label_icon">
-    <p class="label_text">Upcoming Tutorials</p>
-    <div class="view_all">
-            <p class="view_all_text">View All</p>
-            <img src="assets/view_all.svg" class="view_all_img">
-        </div>
-</div>
-
-<div id="upcoming" class="columns" *ngIf="no_tut === false">
-
-    <td *ngFor="let tutorial of tutorials">
-    <div class="tutorial_card" *ngIf="!not_reg">
-
-        <div class="name">
-            <h2 class="tutorial_name">
-                Tutorial
-                <!-- Replace with class name when finished -->
-            </h2>
-        </div>
-        <div class="tutorial_details">
-            <p>{{tutorial.classes[0].name}}</p>
-            <p>{{tutorial.Start_Date}}</p>
-            <p>{{tutorial.Start_Time}} - {{tutorial.End_Time}}</p>
-            <p>Room {{tutorial.Location}}</p>
-            <p>{{tutorial.Desc}}</p>
-            <p>{{tutorial.teacher[0].username}}</p>
-        </div>
-
-
-    </div>
-    </td>
-</div>
-
-<div id="upcoming" class="columns" *ngIf="no_tut === true" style="grid-template-columns: 100%; text-align: center;">
-    <div class="no_tutorials">
-        <p class="no_reg_clas">No upcoming tutorials</p>
-        <div class="teacher_button">
-            <p class="teacher_button_text">Teacher?<br>Create a tutorial</p>
-            <div class="teacher_button_div">
-                <p>Create Tutorial</p>
-            </div>
-        </div>
-    </div>
-</div>
