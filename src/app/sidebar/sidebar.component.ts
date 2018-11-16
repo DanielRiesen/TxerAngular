@@ -28,7 +28,15 @@ export class SidebarComponent implements OnInit {
     });
   }
 
+  user: Object;
+
   ngOnInit() {
+    this.django.getUserDetails().subscribe(data => {
+      this.user=data
+      console.log(data)
+      console.log(this.user)
+    })
+
   }
 
   public mpApp() {

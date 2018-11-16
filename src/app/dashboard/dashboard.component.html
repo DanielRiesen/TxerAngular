@@ -1,3 +1,53 @@
+
+<div class="label">
+        <img src="assets/upcoming_tutorials.svg" class="label_icon">
+        <p class="label_text">Enrolled Classes</p>
+        <div class="view_all">
+            <p class="view_all_text">View All</p>
+            <img src="assets/view_all.svg" class="view_all_img">
+        </div>
+    </div>
+    
+    <div id="enrolled" class="columns" *ngIf="not_reg !== true">
+        <td *ngFor="let course of courses">
+            <div class="classcard">
+    
+                <div>
+                    <h2 class="course_name">
+                        {{course.name}}
+                    </h2>
+                    <p class="course_teacher">
+                        {{course.teacher_name}}
+                    </p>
+                </div>
+                <div class="icon_links">
+    
+                    <img src="assets/classroom.svg" class="link_icon">
+                    <img src="assets/teacher.svg" class="link_icon">
+                    <img src="assets/details.svg" class="link_icon">
+                </div>
+    
+    
+            </div>
+    
+    
+        </td>
+    
+    
+    </div>
+    
+    <div id="enrolled" class="columns" *ngIf="not_reg === true" style="grid-template-columns: 100%; text-align: center;">
+        <div class="no_courses">
+            <p class="no_reg_clas">You currently aren’t registered or teaching any classes</p>
+            <div class="teacher_button">
+                <p class="teacher_button_text">Teacher?<br>Entroll your classes</p>
+                <div class="teacher_button_div">
+                    <p>Register Class</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <div class="label">
         <img src="assets/classes.svg" class="label_icon">
         <p class="label_text">Upcoming Tutorials</p>
@@ -10,7 +60,7 @@
     <div id="upcoming" class="columns" *ngIf="no_tut === false">
     
         <td *ngFor="let tutorial of tutorials">
-            <div class="tutorial_card" *ngIf="!not_reg">
+            <div class="tutorial_card" *ngIf="not_reg === false">
     
                 <div class="name">
                     <h2 class="tutorial_name">
@@ -21,14 +71,15 @@
                 <div class="tutorial_details">
                     <div class="tutorial_text">
                         <p class="class_name">{{tutorial.classes[0].name}}</p>
-                        <p class="hint">Hover Mouse For Details</p>
+                        <p class="time">{{tutorial.Start_Date}}</p>
+                        <p class="time">{{tutorial.Start_Time}} - {{tutorial.End_Time}}</p>
                         <div class=tutorial_details_text>  
-                        <p>{{tutorial.Start_Date}}</p>
-                            <p>{{tutorial.Start_Time}} - {{tutorial.End_Time}}</p>
+
                             <p>Room {{tutorial.Location}}</p>
                             <p *ngIf="tutorial.mandatory">Mandatory</p>
                             <p *ngIf="!tutorial.mandatory">Not Mandatory</p>
                         </div>  
+                        <p class="hint"><br>Hover Mouse For More Details</p>
                     </div>
                     <div class="icons">
                         <div class="icon">
@@ -60,52 +111,4 @@
         </div>
     </div>
 
-<div class="label">
-    <img src="assets/upcoming_tutorials.svg" class="label_icon">
-    <p class="label_text">Enrolled Classes</p>
-    <div class="view_all">
-        <p class="view_all_text">View All</p>
-        <img src="assets/view_all.svg" class="view_all_img">
-    </div>
-</div>
-
-<div id="enrolled" class="columns" *ngIf="not_reg !== true">
-    <td *ngFor="let course of courses">
-        <div class="classcard">
-
-            <div>
-                <h2 class="course_name">
-                    {{course.name}}
-                </h2>
-                <p class="course_teacher">
-                    {{course.teacher_name}}
-                </p>
-            </div>
-            <div class="icon_links">
-
-                <img src="assets/classroom.svg" class="link_icon">
-                <img src="assets/teacher.svg" class="link_icon">
-                <img src="assets/details.svg" class="link_icon">
-            </div>
-
-
-        </div>
-
-
-    </td>
-
-
-</div>
-
-<div id="enrolled" class="columns" *ngIf="not_reg === true" style="grid-template-columns: 100%; text-align: center;">
-    <div class="no_courses">
-        <p class="no_reg_clas">You currently aren’t registered or teaching any classes</p>
-        <div class="teacher_button">
-            <p class="teacher_button_text">Teacher?<br>Entroll your classes</p>
-            <div class="teacher_button_div">
-                <p>Register Class</p>
-            </div>
-        </div>
-    </div>
-</div>
 

@@ -110,4 +110,16 @@ export class DjangoService {
 
   }
 
+  getUserDetails() {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Token '+sessionStorage.getItem('token'),
+      })
+    }
+
+    return this.http.get('http://localhost:8000/API/userDetials/', httpOptions)
+  }
+
 }

@@ -284,7 +284,7 @@
 }
 
 .hint {
-    font-size: 13px;
+    font-size: 11px;
     color: rgba(255, 255, 255, 0.5)
 }
 
@@ -294,9 +294,13 @@
 }
 
 .tutorial_card:hover .class_name {
-    animation: class_name_animation 0.5s forwards;
+    animation: class_name_animation 0.4s forwards;
 }
 
 .tutorial_card:hover .hint {
     display: none;
+}
+
+.time {
+    font-size: 14px;
 }

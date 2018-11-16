@@ -31,8 +31,8 @@ export class RegisterClassesComponent implements OnInit {
   }
 
   onSubmit() {
-    this.django.registerGoogleClasses(this.model['Courses']).subscribe(console.log)
-    this.reRoute('/')
+    this.django.registerGoogleClasses(this.model['Courses']).subscribe(data => {this.reRoute('/')})
+    
   }
 
   

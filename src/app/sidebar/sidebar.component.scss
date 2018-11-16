@@ -22,11 +22,18 @@
 #username {
     font-size: 15px;
     margin: 0;
+    text-decoration: none;
+    color: black;
 }
 
 #email {
     display: grid;
     grid-template-columns: 16px auto;
+}
+
+.login {
+    position: relative;
+    left: -10px;
 }
 
 #arrow {
@@ -43,6 +50,8 @@
     background-color:  rgba(0, 0, 0, 0.08);
     width: 220px;
     margin-top: 2.5vh;
+
+    color: black;
 }
 
 .link_name {
@@ -50,6 +59,11 @@
     margin: auto;
     margin-left: 0px;
     font-size: 15px;
+    text-decoration: none;
+}
+
+.link {
+    text-decoration: none;
 }
 
 
