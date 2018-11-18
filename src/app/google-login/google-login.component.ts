@@ -23,19 +23,19 @@ export class GoogleLoginComponent implements OnInit {
     private gapiService: GoogleApiService,
     private django: DjangoService,
     private router: Router,
-    private zone: NgZone,) {
+    private zone: NgZone, ) {
     // First make sure gapi is loaded can be in AppInitilizer
     gapiService.onLoad().subscribe(() => {
 
     });
   }
 
-  
+
 
   ngOnInit() {
   }
 
-  
+
 
   public test(auth) {
     return Promise.resolve(auth.currentUser.get().grantOfflineAccess())
@@ -50,23 +50,20 @@ export class GoogleLoginComponent implements OnInit {
   }
 
   public signInUser() {
-
-
-
-
     this.authService.getAuth().subscribe((auth) => {
       auth.signIn().then((response) => {
         this.django.getToken(response).subscribe((data) => {
           if (data['created']) {
-          this.reRoute('/profile')
+            this.reRoute('/profile')
           }
           else {
             sessionStorage.setItem("token", data['token'])
+            this.django.isUserLoggedIn.next(true)
             console.log('/')
             this.reRoute('/dashboard')
+
           }
         }
-          
         )
       })
     })

@@ -1,11 +1,18 @@
-<html>
-  <head>
-  </head>
-  <body>
-
-
-    <button id='button' (click)="signInUser()" >SIGNIN with google</button>
-    <button routerLink="/profile">Signup</button>
-
-  </body>
-</html>
+<div id="login-indent">
+  <div id="login_or_signup">
+    <div id='title'><p>Login or Signup</p></div>
+    <div id="login_buttons">
+      <img id="signin_google" style="cursor: pointer;" src="assets/google_signin.svg" alt="" (click)="signInUser()">
+      <p>Or</p>
+      <button routerLink="/profile" id="signup">Signup</button>
+    </div>
+    <div id="info">
+      <h3>Did you know?</h3>
+      <ul>
+        <li>All authorization- is handled through google</li>
+        <li>Txer can never see your raw password</li>
+        <li>Have any security concerns? <a href="/support">Contact us.</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

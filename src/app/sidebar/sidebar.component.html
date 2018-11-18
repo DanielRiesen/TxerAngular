@@ -1,35 +1,44 @@
 <div id="main">
 
-<div id="profile">
-  <img src="assets/profile_icon.svg" id="profile_icon">
-  <div id="email">
-    <img *ngIf="user" src="assets/arrow.svg" align="right" id="arrow">
-    <p *ngIf="user" id="username">{{user.username}}</p>
-    <div></div>
-    <a href="app/login" *ngIf="!user" id="username" class="login">Login</a>
-  </div>
-</div>
-<div id="links">
-
-  <a href="app/dashboard" class="link">
-  <div class="side_link" id="Enrolled">
-      <img src="assets/dashboard.svg" class="icon">
-      <p class="link_name">Dashboard</p>
-      <div class="active">f </div>
+  <div id="profile">
+    <img src="assets/profile_icon.svg" id="profile_icon">
+    <div id="email">
+      <img *ngIf="userStatus" src="assets/arrow.svg" align="right" id="arrow" (click)="show()">
+      <a routerLink="/profile" id="username" *ngIf="userStatus">{{user.username}}</a>
+      <div *ngIf="userStatus" id="dropdown">
+        <a routerLink="/logout">Logout</a><br>
+        <a routerLink="/profile">Profile Page</a><br>
+        <a routerLink="/school">School</a><br>
+      </div>
+      <div></div>
+      <a routerLink="/login" *ngIf="!userStatus" id="username" class="login">Login</a>
     </div>
-  </a>
-
-  <div class="side_link" id="Enrolled">
-    <img src="assets/dashboard.svg" class="icon">
-    <p class="link_name">Profile</p>
-    <div class="not_active">f </div>
   </div>
+  <div id="links">
 
-  <div class="side_link" id="Enrolled">
+    <a routerLink="/dashboard" class="link">
+      <div class="side_link" id="Enrolled">
+        <img src="assets/dashboard.svg" class="icon">
+        <p class="link_name">Dashboard</p>
+        <div class="active">f </div>
+      </div>
+    </a>
+
+  <a routerLink="/enrolled" class="link">
+    <div class="side_link" id="Enrolled">
       <img src="assets/dashboard.svg" class="icon">
       <p class="link_name">Enrolled Classes</p>
       <div class="not_active">f </div>
     </div>
+  </a>
 
-</div>
+  <a routerLink="/Tutorials" class="link">
+    <div class="side_link" id="Enrolled">
+      <img src="assets/dashboard.svg" class="icon">
+      <p class="link_name">Upcoming Tutorials</p>
+      <div class="not_active">f </div>
+    </div>
+  </a>
+
+  </div>
 </div>

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { DjangoService } from '../django.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,9 +17,22 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private django: DjangoService,
+    private zone: NgZone,
+    private router: Router,
   ) { }
 
+  public reRoute(route) {
+    this.zone.run(() => { this.router.navigate([route]) })
+  }
+
   ngOnInit() {
+
+    this.django.isUserLoggedIn.subscribe(data => {
+      if (!data) {
+        this.reRoute('login')
+      }
+    }) 
+
     this.not_reg = true
     this.no_tut = true
     this.django.getRegClasses().subscribe(

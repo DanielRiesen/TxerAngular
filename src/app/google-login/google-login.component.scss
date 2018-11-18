@@ -1,0 +1,87 @@
+#login-indent {
+    background-color: #FBFBFB;
+    margin: 60px;
+    padding: 30px;
+    box-shadow: inset 8px 8px 10px rgba(0, 0, 0, 0.06);
+}
+
+#login_or_signup {
+    border-radius: 4px;
+    display: grid;
+    grid-template-rows: 106px 314px auto;
+    background-color: #656565;
+    width: 380px;
+    height: 620px;
+    margin: auto;
+    box-shadow: 12px 12px 20px rgba(91, 91, 91, 0.72);
+
+}
+
+#title {
+    background-color: #27A7CF;
+    color: white;
+    font-size: 28px;
+    height: 100%;
+}
+
+#title p {
+    text-align: center;
+    margin: 37px 0;
+}
+
+#info {
+    background-color: #939393;
+    color: white;
+}
+
+#login_buttons {
+    display: grid;
+    grid-template-rows: 137px 40px 137px;
+}
+
+#info h3 {
+    padding-left: 22px;
+    padding-top: 20px;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+#info ul li {
+    font-size: 14px;
+    padding: 3px 0;
+}
+
+#info ul li a {
+    color: white;
+}
+
+#signup {
+    width: 250px;
+    height: 60px;
+    margin: auto;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 18px;
+    color: #757575;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#login_buttons p {
+    text-align: center;
+    font-size: 18px;
+    color: #999999;
+    margin: auto;
+    cursor: context-menu;
+}
+
+#signin_google {
+    width: 250px;
+    height: 60px;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 26px;
+    color: #757575;
+}

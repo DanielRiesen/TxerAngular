@@ -18,14 +18,8 @@ export class DjangoService {
       })
     };
 
-    if (sessionStorage.getItem('token')) {
-      console.log("sending key")
-      return this.http.get('http://localhost:8000/API/userDetials/', httpOptions)
-    }
-
-    else {
-      return this.http.get('http://localhost:8000/API/userDefault/')
-    }
+    console.log("sending key")
+    return this.http.get('http://localhost:8000/API/userDetials/', httpOptions)
 
   }
 
@@ -83,8 +77,19 @@ export class DjangoService {
     return this.http.post("http://localhost:8000/API/googleCourses/", data={courses: data}, httpOptions)
   }
 
-  public isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(sessionStorage.getItem('token') == '');
-  
+  private testToken() {
+    if (sessionStorage.getItem('token')) {
+      console.log('temp')
+      return true
+
+    }
+    else {
+      console.log('not')
+      return false
+    }
+  }
+
+  public isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.testToken())
 
   getRegClasses() {
     const httpOptions = {
@@ -120,6 +125,11 @@ export class DjangoService {
     }
 
     return this.http.get('http://localhost:8000/API/userDetials/', httpOptions)
+  }
+
+  logoutUser() {
+    this.isUserLoggedIn.next(false)
+    sessionStorage.clear()
   }
 
 }

@@ -22,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterClassesComponent } from './register-classes/register-classes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TopNavComponent } from './top-nav/top-nav.component';
+import { LogoutComponent } from './logout/logout.component';
 
 let gapiClientConfig: NgGapiClientConfig = {
   client_id: "962650220393-o5upillndnmij30pdsgktb58fnmm3b4o.apps.googleusercontent.com",
@@ -38,7 +39,8 @@ let gapiClientConfig: NgGapiClientConfig = {
     PermissionComponent,
     RegisterClassesComponent,
     DashboardComponent,
-    TopNavComponent
+    TopNavComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DjangoService } from '../django.service';
 import { GoogleAuthService } from 'ng-gapi';
 import { UserServicesService } from '../user-services.service';
@@ -15,7 +15,10 @@ export class SidebarComponent implements OnInit {
   public sheet: any;
   public foundSheet: any;
   public auth2: any;
+  public userStatus: boolean = false;
   public scopes: 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/classroom.courses.readonly https://www.googleapis.com/auth/classroom.profile.photos https://www.googleapis.com/auth/classroom.announcements https://www.googleapis.com/auth/classroom.coursework.students https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/classroom.rosters';
+
+
 
   constructor(
     private userService: UserServicesService,
@@ -31,11 +34,30 @@ export class SidebarComponent implements OnInit {
   user: Object;
 
   ngOnInit() {
-    this.django.getUserDetails().subscribe(data => {
-      this.user=data
-      console.log(data)
-      console.log(this.user)
-    })
+
+    this.django.isUserLoggedIn.subscribe((status) => {
+      
+      console.log('called')
+      this.django.getUserDetails().subscribe(data => {
+        this.user=data
+        console.log(data)
+        console.log(this.user)
+        this.userStatus=status
+      })
+
+  })
+
+  }
+
+  public show() {
+    if (document.getElementById("dropdown").style.display === "inline") {
+      document.getElementById("dropdown").style.display = "none"
+      document.getElementById("arrow").style.transform = "rotate(0deg)"
+    }
+    else {
+    document.getElementById("dropdown").style.display = "inline"
+    document.getElementById("arrow").style.transform = "rotate(180deg)"
+    }
 
   }
 
