@@ -46,11 +46,13 @@ export class PermissionComponent implements OnInit {
           sessionStorage.setItem('token', token['token'])
           this.django.updateProfile({username: sessionStorage.getItem('username'), desc: sessionStorage.getItem('desc'), school: sessionStorage.getItem("school"), teacher: sessionStorage.getItem('teacher')}).subscribe((data) => {
             if (data['user_type'] == 'teacher') {
+              this.django.isUserLoggedIn.next(true)
               console.log('/reg-classes')
               this.reRoute('/reg-classes')
             }
             else {
               console.log('/')
+              this.django.isUserLoggedIn.next(true)
               this.reRoute('/')
             }
           })})

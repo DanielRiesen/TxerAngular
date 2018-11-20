@@ -10,6 +10,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class ProfileComponent implements OnInit {
 
   schools: Object;
+  userState: boolean;
 
   constructor(
     private django:DjangoService,
@@ -17,6 +18,9 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit() {
+    this.django.isUserLoggedIn.subscribe(data => {
+      this.userState = data;
+    })
   }
 
   public reRoute(route) {
@@ -25,12 +29,29 @@ export class ProfileComponent implements OnInit {
 
   model: any = {};
  
+
+
   onSubmit() {
     for (let cur in this.model) {
       sessionStorage.setItem(cur, this.model[cur])
       console.log(cur)
+
     }
-    this.reRoute('/permisson')
+
+    if (this.userState === true) {
+      this.django.updateProfile({username: sessionStorage.getItem('username'), desc: sessionStorage.getItem('desc'), school: sessionStorage.getItem("school"), teacher: sessionStorage.getItem('teacher')}).subscribe((data) =>
+        this.django.currentUserDetails.next(
+          {username: sessionStorage.getItem('username'),
+           desc: sessionStorage.getItem('desc'),
+           school: sessionStorage.getItem("school"),
+           teacher: sessionStorage.getItem('teacher')
+          })
+      )
+      this.reRoute('/dashboard')
+    }
+    else {
+      this.reRoute('/permisson')
+    }
   }
 
 }

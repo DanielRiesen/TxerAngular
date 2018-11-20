@@ -3,6 +3,7 @@ import { DjangoService } from '../django.service';
 import { GoogleAuthService } from 'ng-gapi';
 import { UserServicesService } from '../user-services.service';
 import { GoogleApiService } from 'ng-gapi';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -24,7 +25,8 @@ export class SidebarComponent implements OnInit {
     private userService: UserServicesService,
     private authService: GoogleAuthService,
     private gapiService: GoogleApiService,
-    private django: DjangoService) {
+    private django: DjangoService,
+    private router: Router,) {
     // First make sure gapi is loaded can be in AppInitilizer
     gapiService.onLoad().subscribe(() => {
 
@@ -35,19 +37,28 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
 
+    this.initUser().then(data => this.django.currentUserDetails.next(data))
+
     this.django.isUserLoggedIn.subscribe((status) => {
       
       console.log('called')
-      this.django.getUserDetails().subscribe(data => {
-        this.user=data
-        console.log(data)
-        console.log(this.user)
-        this.userStatus=status
-      })
+      if (status) {
+        this.django.currentUserDetails.subscribe(data => {
+          this.user = data
+        })
+        this.userStatus = true
+      }
+      else {
+        this.userStatus = false
+      }
 
   })
 
   }
+
+  private initUser() {
+    return new Promise(resolve=>{
+        this.django.getUserDetails().subscribe((data:any) => {resolve(data)})})}
 
   public show() {
     if (document.getElementById("dropdown").style.display === "inline") {

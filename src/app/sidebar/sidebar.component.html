@@ -20,7 +20,7 @@
       <div class="side_link" id="Enrolled">
         <img src="assets/dashboard.svg" class="icon">
         <p class="link_name">Dashboard</p>
-        <div class="active">f </div>
+        <div [ngClass]="router.url === '/dashboard' ? 'active' : 'not_active'">f </div>
       </div>
     </a>
 
@@ -28,7 +28,7 @@
     <div class="side_link" id="Enrolled">
       <img src="assets/dashboard.svg" class="icon">
       <p class="link_name">Enrolled Classes</p>
-      <div class="not_active">f </div>
+      <div [ngClass]="router.url === '/enrolled' ? 'active' : 'not_active'">f </div>
     </div>
   </a>
 
@@ -36,7 +36,7 @@
     <div class="side_link" id="Enrolled">
       <img src="assets/dashboard.svg" class="icon">
       <p class="link_name">Upcoming Tutorials</p>
-      <div class="not_active">f </div>
+      <div [ngClass]="router.url === '/Tutorials' ? 'active' : 'not_active'">f </div>
     </div>
   </a>
 

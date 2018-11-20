@@ -9,6 +9,8 @@ export class DjangoService {
 
   constructor(private http: HttpClient) { }
 
+  toReturn: Object;
+
   getUser() {
     
     const httpOptions = {
@@ -131,5 +133,7 @@ export class DjangoService {
     this.isUserLoggedIn.next(false)
     sessionStorage.clear()
   }
+
+  currentUserDetails: BehaviorSubject<object> = new BehaviorSubject<object>({})
 
 }
