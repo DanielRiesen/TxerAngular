@@ -8,9 +8,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LogoutComponent } from './logout/logout.component';
 import { EnrolledComponent } from './enrolled/enrolled.component';
 import { TutorialsComponent } from './tutorials/tutorials.component';
+import { IndexComponent } from './index/index.component';
 
-const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+export const routeConfig:Routes = [
+  { path: '', component: IndexComponent, outlet: 'aux' },
   { path: 'login', component: GoogleLoginComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'permisson', component: PermissionComponent },
@@ -19,10 +20,11 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'enrolled', component: EnrolledComponent },
   { path: 'Tutorials', component: TutorialsComponent },
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routeConfig)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

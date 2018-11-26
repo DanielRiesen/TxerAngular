@@ -27,11 +27,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
 
-    this.django.isUserLoggedIn.subscribe(data => {
-      if (!data) {
-        this.reRoute('login')
-      }
-    }) 
+    
 
     this.not_reg = true
     this.no_tut = true
@@ -106,6 +102,12 @@ export class DashboardComponent implements OnInit {
         }
       }
     );
+    this.django.isUserLoggedIn.subscribe(data => {
+      if (!data) {
+        this.reRoute('login')
+      }
+    }) 
+
   }
 
 

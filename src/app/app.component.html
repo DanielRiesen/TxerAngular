@@ -1,15 +1,18 @@
-
-
-<div id="container">
-<div id="side_bar">
+<div id="container" *ngIf="router.url !== '/'">
+  <div id="side_bar">
     <app-sidebar></app-sidebar>
-</div>
+  </div>
 
-    <div id="right-side">
+  <div id="right-side">
     <app-top-nav></app-top-nav>
     <div id="content">
+
       <router-outlet></router-outlet>
     </div>
-    </div>
-    
   </div>
+
+
+
+</div>
+
+<router-outlet name='aux' *ngIf="router.url === '/'"></router-outlet>

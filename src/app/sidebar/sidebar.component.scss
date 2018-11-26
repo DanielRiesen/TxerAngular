@@ -93,9 +93,8 @@
     display: none;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-top: 10px;
-    padding: 20px 10px;
-    margin-bottom: -5px;
-    padding-bottom: -5px;
+    padding: 20px 0px 10px 10px;
+    border-radius: 4px;
 }
 
 #dropdown a {
@@ -103,6 +102,14 @@
     text-decoration: none;
     color: #A8A8A8;
     list-style-type: none;
-    margin: auto 5px;
+    margin: auto 3px;
     padding: 0;
+    margin-bottom: -3px;
+    padding-bottom: -3px;
+}
+
+#dropdown img {
+    position: relative;
+    bottom: 28px;
+    right: 10px;
 }

@@ -25,6 +25,7 @@ import { TopNavComponent } from './top-nav/top-nav.component';
 import { LogoutComponent } from './logout/logout.component';
 import { EnrolledComponent } from './enrolled/enrolled.component';
 import { TutorialsComponent } from './tutorials/tutorials.component';
+import { IndexComponent } from './index/index.component';
 
 let gapiClientConfig: NgGapiClientConfig = {
   client_id: "962650220393-o5upillndnmij30pdsgktb58fnmm3b4o.apps.googleusercontent.com",
@@ -44,7 +45,8 @@ let gapiClientConfig: NgGapiClientConfig = {
     TopNavComponent,
     LogoutComponent,
     EnrolledComponent,
-    TutorialsComponent
+    TutorialsComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,

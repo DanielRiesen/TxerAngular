@@ -59,6 +59,12 @@ export class GoogleLoginComponent implements OnInit {
           else {
             sessionStorage.setItem("token", data['token'])
             this.django.isUserLoggedIn.next(true)
+            this.django.getUserDetails().subscribe(
+              data=> {
+                this.django.currentUserDetails.next(data)
+              }
+            )
+            
             console.log('/')
             this.reRoute('/dashboard')
 

@@ -4,6 +4,7 @@ import { GoogleAuthService } from 'ng-gapi';
 import { UserServicesService } from '../user-services.service';
 import { GoogleApiService } from 'ng-gapi';
 import { Router } from '@angular/router';
+import * as $ from 'jquery/dist/jquery.min.js';
 
 @Component({
   selector: 'app-sidebar',
@@ -26,7 +27,7 @@ export class SidebarComponent implements OnInit {
     private authService: GoogleAuthService,
     private gapiService: GoogleApiService,
     private django: DjangoService,
-    private router: Router,) {
+    private router: Router, ) {
     // First make sure gapi is loaded can be in AppInitilizer
     gapiService.onLoad().subscribe(() => {
 
@@ -37,10 +38,25 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
 
+    this.django.isUserLoggedIn.subscribe((status) => {
+      if (status) {
+        $(document).mouseup(function (e) {
+          var container = $("dropdown");
+    
+          // if the target of the click isn't the container nor a descendant of the container
+          if (!container.is(e.target) && container.has(e.target).length === 0) {
+            document.getElementById("dropdown").style.display = "none"
+            document.getElementById("arrow").style.transform = "rotate(0deg)"
+          }
+        });
+      }
+    })
+    
+
     this.initUser().then(data => this.django.currentUserDetails.next(data))
 
     this.django.isUserLoggedIn.subscribe((status) => {
-      
+
       console.log('called')
       if (status) {
         this.django.currentUserDetails.subscribe(data => {
@@ -52,13 +68,15 @@ export class SidebarComponent implements OnInit {
         this.userStatus = false
       }
 
-  })
+    })
 
   }
 
   private initUser() {
-    return new Promise(resolve=>{
-        this.django.getUserDetails().subscribe((data:any) => {resolve(data)})})}
+    return new Promise(resolve => {
+      this.django.getUserDetails().subscribe((data: any) => { resolve(data) })
+    })
+  }
 
   public show() {
     if (document.getElementById("dropdown").style.display === "inline") {
@@ -66,11 +84,18 @@ export class SidebarComponent implements OnInit {
       document.getElementById("arrow").style.transform = "rotate(0deg)"
     }
     else {
-    document.getElementById("dropdown").style.display = "inline"
-    document.getElementById("arrow").style.transform = "rotate(180deg)"
+      document.getElementById("dropdown").style.display = "inline"
+      document.getElementById("arrow").style.transform = "rotate(180deg)"
     }
 
   }
+
+  public hide() {
+    document.getElementById("dropdown").style.display = "none"
+    document.getElementById("arrow").style.transform = "rotate(0deg)"
+  }
+
+
 
   public mpApp() {
     // this.gapiService.onLoad().subscribe(()=> {

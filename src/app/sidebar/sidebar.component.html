@@ -6,6 +6,7 @@
       <img *ngIf="userStatus" src="assets/arrow.svg" align="right" id="arrow" (click)="show()">
       <a routerLink="/profile" id="username" *ngIf="userStatus">{{user.username}}</a>
       <div *ngIf="userStatus" id="dropdown">
+        <img src="assets/triangle_white.svg">
         <a routerLink="/logout">Logout</a><br>
         <a routerLink="/profile">Profile Page</a><br>
         <a routerLink="/school">School</a><br>
